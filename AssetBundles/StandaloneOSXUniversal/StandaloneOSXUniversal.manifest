@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 1449998879
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: scene.unity3d
+      Dependencies: {}

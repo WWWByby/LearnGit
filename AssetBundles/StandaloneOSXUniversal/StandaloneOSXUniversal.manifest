@@ -1,7 +1,15 @@
 ManifestFileVersion: 0
-CRC: 1449998879
+CRC: 454221760
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: scene.unity3d
+      Name: scenes/samplescene1.unity
+      Dependencies:
+        Dependency_0: prefabs/canvas.prefab
+        Dependency_1: kight
+    Info_1:
+      Name: prefabs/canvas.prefab
+      Dependencies: {}
+    Info_2:
+      Name: kight
       Dependencies: {}

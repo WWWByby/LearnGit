@@ -23,6 +23,7 @@
       <Path>Package</Path>
       <Path>Temp</Path>
       <Path>obj</Path>
+      <Path>~</Path>
     </explicitExcludes>
   </component>
 </project>

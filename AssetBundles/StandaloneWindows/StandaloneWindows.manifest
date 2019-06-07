@@ -1,11 +1,10 @@
 ManifestFileVersion: 0
-CRC: 2215475770
+CRC: 443415288
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: scenes/samplescene1.unity
-      Dependencies:
-        Dependency_0: prefabs/canvas.prefab
+      Dependencies: {}
     Info_1:
       Name: prefabs/canvas.prefab
       Dependencies: {}

@@ -1,7 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
 
 public class LoaderBundle : MonoBehaviour
@@ -17,18 +15,21 @@ public class LoaderBundle : MonoBehaviour
     IEnumerator LoadAssetBundle(string path = "")
     {
         path = path.ToLower();
-        //
-        string sourcePath;
+        string sourcePath = Application.streamingAssetsPath + "/"+path;
 
-#if UNITY_EDITOR
-        sourcePath = Application.streamingAssetsPath + "/StandaloneOSXUniversal/"+path;
-#endif
+        AssetBundleCreateRequest abCR = AssetBundle.LoadFromFileAsync(sourcePath);
+        yield return abCR;
+        AssetBundle bundle = abCR.assetBundle;
+        foreach (var item in bundle.GetAllAssetNames())
+        {
+            print(item);
+           AssetBundleRequest abr =  bundle.LoadAssetAsync<GameObject>(item);
 
-        Debug.Log("加载prefab:" + sourcePath);
-        AssetBundle assetBundle = AssetBundle.LoadFromFile(sourcePath);
-        yield return assetBundle;
-        string[] names = assetBundle.GetAllAssetNames();
-        print(names.Length);
+            yield return abr;
+
+            Object.Instantiate(abr.asset);
+        }
+        
     }
 
     // Update is called once per frame

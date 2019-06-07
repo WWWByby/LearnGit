@@ -22,7 +22,7 @@ public class AssetBundleMenuItems
     {
         ClearAssetBundlesName();
         AssetBundleMenuItems.NamedAssetBundles();
-        Utility.CreateAssetBundleDirectory();
+        //Utility.CreateAssetBundleDirectory();
     }
 
 
@@ -40,6 +40,8 @@ public class AssetBundleMenuItems
         {
             AssetDatabase.RemoveAssetBundleName(abNames[i], true);
         }
+
+        AssetDatabase.RemoveUnusedAssetBundleNames();
     }
 
 
@@ -70,10 +72,11 @@ public class AssetBundleMenuItems
 
             importer.assetBundleName = info.Name;
             importer.assetBundleVariant = info.Variant;
+            importer.SaveAndReimport();
         }
-        
+        //AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        
+
     }
 
 }
